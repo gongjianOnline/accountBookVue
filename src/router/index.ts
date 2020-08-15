@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Money from "@/views/Money.vue";
 import Statistacs from "@/views/Statistacs.vue";
 import Labels from "@/views/Labels.vue";
+import NotFound from "@/views/NotFound.vue";
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,10 @@ Vue.use(VueRouter)
       name: 'statistacs',
       component: Statistacs
     },
+    {
+      path:'*',
+      component:NotFound
+    }
 
 
   // {
