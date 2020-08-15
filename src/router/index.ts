@@ -18,12 +18,12 @@ Vue.use(VueRouter)
       component: Money
     },
     {
-      path: '/',
+      path: '/labels',
       name: 'labels',
       component:Labels
     },
     {
-      path: '/',
+      path: '/statistacs',
       name: 'statistacs',
       component: Statistacs
     },

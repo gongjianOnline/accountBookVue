@@ -1,10 +1,13 @@
 <template>
-    
+  <div>
+    123
+    <Nav></Nav>
+  </div>
 </template>
 
 <script lang="ts">
   export default {
-    name: "statistacs.vue"
+    name: "statistacs.vue",
   }
 </script>
 
