@@ -1,7 +1,8 @@
 <template>
   <div>
-    123
-    <Nav></Nav>
+      <Layout>
+          hello 统计页面
+      </Layout>
   </div>
 </template>
 
