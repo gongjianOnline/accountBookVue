@@ -1,13 +1,13 @@
 <template>
   <nav>
-    <router-link to="/money" class="item">
+    <router-link to="/money" class="item" active-class="selected">
       <Icon name="money"></Icon>
       记账
-    </router-link>|
-    <router-link to="/labels" class="item">
+    </router-link>
+    <router-link to="/labels" class="item" active-class="selected">
       <Icon name="label"></Icon>
-      标签</router-link>|
-    <router-link to="/statistacs" class="item">
+      标签</router-link>
+    <router-link to="/statistacs" class="item" active-class="selected">
       <Icon name="chart"></Icon>
       统计</router-link>
   </nav>
@@ -35,6 +35,9 @@ export default {
         width: 32px;
         height: 32px;
       }
+    }
+    >.selected{
+      color: red;
     }
   }
 </style>
