@@ -25,20 +25,30 @@
   //   }
   //
   // }
-  import Vue from "vue"
-  import {Component} from "vue-property-decorator";
+  import Vue from "vue";
+  import {Component, Prop} from "vue-property-decorator";
 
   @Component
   export default class Types extends Vue {
     type = "-";
 
+    @Prop(String) xxx: string | undefined;
+    // String告诉vue xxx是个Number;
+    // Prop 告诉Vue xxx不是data 是 prop;
+
+
+
     selectType(type: string) {
-      console.log("123456")
+      console.log("123456");
       // console.log(type)
       if (type !== "-" && type !== "+") {
-        throw new Error("type in unknown")
+        throw new Error("type in unknown");
       }
-      this.type = type
+      this.type = type;
+    }
+
+    mounted(){
+      console.log(this.xxx);
     }
 
   }
