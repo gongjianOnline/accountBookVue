@@ -39,7 +39,6 @@
 
 
     selectType(type: string) {
-      console.log("123456");
       // console.log(type)
       if (type !== "-" && type !== "+") {
         throw new Error("type in unknown");
@@ -50,6 +49,7 @@
     mounted(){
       console.log(this.xxx);
     }
+
 
   }
 
