@@ -33,9 +33,9 @@
     type = "-";
 
     @Prop(String) xxx: string | undefined;
-    // String告诉vue xxx是个Number;
+    // String告诉vue xxx是个Number;（运行时报错）
     // Prop 告诉Vue xxx不是data 是 prop;
-
+    // number | undefined (编译报错)
 
 
     selectType(type: string) {
@@ -48,6 +48,9 @@
 
     mounted(){
       console.log(this.xxx);
+
+
+
     }
 
 
