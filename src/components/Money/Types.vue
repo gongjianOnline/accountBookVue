@@ -8,23 +8,6 @@
 </template>
 
 <script lang="ts">
-  // export default {
-  //   name: "Types",
-  //   data(){
-  //     return{
-  //       type:"-"
-  //     }
-  //   },
-  //   methods:{
-  //     selectType(type){
-  //       if(type !== "-" && type !== "+"){
-  //         throw new Error("type in unknown")
-  //       }
-  //       this.type = type
-  //     }
-  //   }
-  //
-  // }
   import Vue from "vue";
   import {Component, Prop} from "vue-property-decorator";
 

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "noEmitOnError": true, //如果编译有错将不继续编译
     "target": "esnext",
     "module": "esnext",
     "strict": true,
