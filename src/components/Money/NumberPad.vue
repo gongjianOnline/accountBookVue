@@ -26,7 +26,7 @@
 
   @Component
   export default class Types extends Vue {
-    output = "";
+    output = "0";
     /*数字键盘*/
     inputContent(event: MouseEvent){
       //强制制定类型
@@ -72,7 +72,9 @@
       this.output = "0"
     }
     Ok(){
-      this.$emit("update:value",this.output)
+      this.$emit("update:value",this.output);
+      this.$emit('submit',this.output);
+      this.output = "0"
       console.log("完成按钮,待开发");
     }
 
