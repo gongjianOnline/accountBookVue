@@ -15,7 +15,7 @@
   export default class Types extends Vue {
     type = "-";
 
-    @Prop(String) xxx: string | undefined;
+    // @Prop(String) xxx: string | undefined;
     // String告诉vue xxx是个Number;（运行时报错）
     // Prop 告诉Vue xxx不是data 是 prop;
     // number | undefined (编译报错)
@@ -30,10 +30,7 @@
     }
 
     mounted(){
-      console.log(this.xxx);
-
-
-
+      // console.log(this.xxx);
     }
 
 
