@@ -22,7 +22,7 @@
 
 <script lang="ts">
   import Vue from "vue";
-  import {Component, Prop} from "vue-property-decorator";
+  import {Component} from "vue-property-decorator";
 
   @Component
   export default class Types extends Vue {
@@ -40,7 +40,7 @@
         this.clear()
         return;
       }
-      if(input === "ok"){
+      if(input === "Ok"){
         this.Ok()
         return;
       }
@@ -72,6 +72,7 @@
       this.output = "0"
     }
     Ok(){
+      this.$emit("update:value",this.output)
       console.log("完成按钮,待开发");
     }
 
