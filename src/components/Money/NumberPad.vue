@@ -1,8 +1,8 @@
 <template>
   <div class="numberPad">
-    <div class="output">100</div>
-    <div class="buttons clearfix">
-      <button>1</button>
+    <div class="output">{{output}}</div>
+    <div class="buttons clearfix" @click="inputContent">
+      <button @click="output+=1">1</button>
       <button>2</button>
       <button>3</button>
       <button>删除</button>
@@ -20,9 +20,64 @@
   </div>
 </template>
 
-<script>
-  export default {
-    name: "NumberPad",
+<script lang="ts">
+  import Vue from "vue";
+  import {Component, Prop} from "vue-property-decorator";
+
+  @Component
+  export default class Types extends Vue {
+    output = "";
+    /*数字键盘*/
+    inputContent(event: MouseEvent){
+      //强制制定类型
+      const button = (event.target as HTMLButtonElement);
+      const input = button.textContent as string;
+      if(input === "删除"){
+        this.remove()
+        return
+      }
+      if(input === "清空"){
+        this.clear()
+        return;
+      }
+      if(input === "ok"){
+        this.Ok()
+        return;
+      }
+      if(this.output.length === 16){return}
+      if(event.target){
+        if(this.output === '0'){
+          if('01234569'.indexOf(input)>=0){
+            this.output = input;
+            return;
+          }else{
+            this.output += input;
+          }
+          return;
+        }
+        if(this.output.indexOf('.')>=0  && input === "."){return;}
+        this.output += input;
+      }
+
+    }
+    /*操作键盘*/
+    remove(){
+      if(this.output.length === 1){
+        this.output = "0"
+      }else{
+        this.output = this.output.slice(0,-1);
+      }
+    }
+    clear(){
+      this.output = "0"
+    }
+    Ok(){
+      console.log("完成按钮,待开发");
+    }
+
+
+
+
 
   }
 </script>
@@ -36,7 +91,8 @@
       font-family: Consolas,monospace;
       padding: 9px 16px;
       text-align: right;
-      box-shadow: inset 0 0 5px rgba(0,0,0,0.2)
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+      height: 72px;
   }
     .buttons{
       @extend %clearFix;
