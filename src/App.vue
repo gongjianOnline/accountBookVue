@@ -13,7 +13,7 @@
   box-sizing: border-box;;
 }
 body{
-
+  background: #f5f5f5;
 }
 a{
   text-decoration: none;
