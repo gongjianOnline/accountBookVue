@@ -55,7 +55,7 @@
     padding: 16px;
     display: flex;
     flex-direction: column-reverse;
-
+    background: white;
     > .current {
       display: flex;
       flex-wrap: wrap;
