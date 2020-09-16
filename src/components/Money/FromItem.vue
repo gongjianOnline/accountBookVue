@@ -17,6 +17,7 @@
     value = "";
     @Prop({required:true}) fielName!: string;
     @Prop() placeholder?: string;
+    @Prop({default:""}) value!: string;
     @Watch('value')
     onValueChanged(val: string){
       this.$emit('update:value',val);
