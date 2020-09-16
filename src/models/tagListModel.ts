@@ -1,27 +1,33 @@
 const localStorageKeyName = 'tagList'
+type Tag = {
+  id: string;
+  name: string;
+}
 type tagListModel = {
-  data: string[];
-  fetch: () => string[];
-  create: (name: string) => boolean;
+  data: Tag[];
+  fetch: () => Tag[];
+  create: (name: string) => 'success' | "duplicated"; //联合类型
   save: () => void;
 }
 
 const tagListModel: tagListModel = {
   data:[],
   fetch(){
-    this.data = JSON.parse(window.localStorage.getItem(localStorageKeyName) || '[]');
+    this.data = JSON.parse(window.localStorage.getItem('localStorageKeyName') || '[]');
     return this.data
   },
   create(name: string){
-    if(this.data.indexOf(name)>=0){
-      return new Error('duplicated')
+    const names = this.data.map(item=>item.name);
+    if(names.indexOf(name)>=0){
+      return 'duplicated'
     }
-    this.data.push(name);
+    this.data.push({id:name,name:name});
     this.save();
-    return true;
+    return 'success';
   },
   save(){
     window.localStorage.setItem('localStorageKeyName',JSON.stringify(this.data));
+    console.log(JSON.stringify(window.localStorage.getItem('localStorageKeyName')))
   }
 }
 export default tagListModel;

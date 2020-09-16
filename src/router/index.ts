@@ -2,9 +2,10 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import Money from "@/views/Money.vue";
-import Statistacs from "@/views/Statistacs.vue";
+import Statistice from "@/views/Statistice.vue";
 import Labels from "@/views/Labels.vue";
 import NotFound from "@/views/NotFound.vue";
+import EditLabel from "@/views/EditLabel.vue"
 
 Vue.use(VueRouter)
 
@@ -26,7 +27,12 @@ Vue.use(VueRouter)
     {
       path: '/statistacs',
       name: 'statistacs',
-      component: Statistacs
+      component: Statistice
+    },
+    {
+      path:'/labels/edit',
+      name:"editLabel",
+      component:EditLabel
     },
     {
       path:'*',
