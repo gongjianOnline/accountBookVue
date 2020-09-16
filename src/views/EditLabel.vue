@@ -6,7 +6,7 @@
       <span class="rightIcon"></span>
     </div>
     <div class="from-wrapper">
-      <FromItem fiel-name="标签名" placeholder="请输入标签名" />
+      <FromItem fiel-name="标签名" placeholder="请输入标签名" :value="tag.name"/>
     </div>
     <div class="button-wrapper">
       <Button>删除标签</Button>
@@ -26,14 +26,14 @@
     components: {FromItem: FromItem,Button}
   })
   export default class EditLabel extends Vue {
+    tag?: {id: string;name: string} = undefined;
     created(){
-      console.log(this.$route.params)
       const id = this.$route.params.id;
       tagListModel.fetch();
       const tags = tagListModel.data;
       const tag = tags.filter(t => t.id === id)[0]
       if(tag){
-        console.log(tag);
+        this.tag = tag;
       }else{
         this.$router.replace('/404')
       }
