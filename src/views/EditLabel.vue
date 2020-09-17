@@ -45,17 +45,18 @@
     updateTag(name: string){
       console.log("123456")
       if(this.tag){
-        console.log(this.tag)
         tagListModel.update(this.tag.id,name)
       }
     }
     remove(){
       if(this.tag){
-        if(tagListModel.remove(this.tag.id)){
-          this.$router.back()
+        if( window.removeTag(this.tag.id)){
+          window.alert("删除成功")
+        }else{
+          window.alert('删除失败')
         }
-
       }
+
     }
   }
 
