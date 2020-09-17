@@ -6,10 +6,13 @@
       <span class="rightIcon"></span>
     </div>
     <div class="from-wrapper">
-      <FromItem fiel-name="标签名" placeholder="请输入标签名" :value="tag.name"/>
+      <FromItem fiel-name="标签名"
+                placeholder="请输入标签名"
+                :value="tag.name"
+                @update:value="updateTag"/>
     </div>
     <div class="button-wrapper">
-      <Button>删除标签</Button>
+      <Button @click="remove">删除标签</Button>
     </div>
 
   </Layout>
@@ -38,6 +41,18 @@
         this.$router.replace('/404')
       }
 
+    }
+    updateTag(name: string){
+      console.log("123456")
+      if(this.tag){
+        console.log(this.tag)
+        tagListModel.update(this.tag.id,name)
+      }
+    }
+    remove(){
+      if(this.tag){
+        tagListModel.remove(this.tag.id)
+      }
     }
   }
 
