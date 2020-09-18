@@ -8,7 +8,7 @@
                   fiel-name="备注"
                   placeholder="在这里输入备注"/>
       </div>
-      <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
+      <Tags :data-source="tags"/>
     </Layout>
   </div>
 </template>
