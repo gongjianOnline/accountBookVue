@@ -39,8 +39,6 @@
     };
     recordList = store.recordList;
 
-
-
     onUpdateTags(value: string[]){
       this.record.tags = value;
     }
