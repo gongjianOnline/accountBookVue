@@ -19,10 +19,10 @@
   import Types from "@/components/Money/Types.vue";
   import FromItem from "@/components/Money/FromItem.vue";
   import Tags from "@/components/Money/Tags.vue";
-  import {Component,Watch} from "vue-property-decorator";
-  import recordListModel from "@/models/recordListModel";
+  import {Component} from "vue-property-decorator";
 
-  const recordList = recordListModel.fetch();
+
+  const recordList = window.recordList;
 
   @Component({
     components:{
@@ -39,7 +39,7 @@
       type:'',
       amount:0
     };
-    recordList: RecordItem[] =JSON.parse(window.localStorage.getItem("recordList") || '[]');
+    recordList = window.recordList;
 
 
 
@@ -53,12 +53,9 @@
       this.record.amount = parseFloat(value);
     }
     saveRecord(){
-      recordListModel.create(this.record)
+      window.createRecord(this.record)
     }
-    @Watch('recordList')
-    onRecordListChange(){
-      window.localStorage.setItem('recordList',JSON.stringify(this.recordList))
-    }
+
   }
 
 
