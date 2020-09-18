@@ -20,9 +20,7 @@
   import FromItem from "@/components/Money/FromItem.vue";
   import Tags from "@/components/Money/Tags.vue";
   import {Component} from "vue-property-decorator";
-
-
-  const recordList = window.recordList;
+  import store from "@/store/index2";
 
   @Component({
     components:{
@@ -32,14 +30,14 @@
       Tags}
   })
   export default class Money extends Vue{
-    tags=window.tagList;
+    tags=store.tagList;
     record: RecordItem = {
       tags:[],
       notes:'',
       type:'',
       amount:0
     };
-    recordList = window.recordList;
+    recordList = store.recordList;
 
 
 
@@ -53,7 +51,7 @@
       this.record.amount = parseFloat(value);
     }
     saveRecord(){
-      window.createRecord(this.record)
+      store.createRecord(this.record)
     }
 
   }
