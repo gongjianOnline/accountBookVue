@@ -22,7 +22,6 @@
 <script lang="ts">
   import Vue from 'vue';
   import {Component} from "vue-property-decorator";
-  import tagListModel from "@/models/tagListModel";
   import FromItem from "@/components/Money/FromItem.vue";
   import Button from "@/components/Button.vue";
   @Component({
@@ -31,21 +30,15 @@
   export default class EditLabel extends Vue {
     tag?: {id: string;name: string} = undefined;
     created(){
-      const id = this.$route.params.id;
-      tagListModel.fetch();
-      const tags = tagListModel.data;
-      const tag = tags.filter(t => t.id === id)[0]
-      if(tag){
-        this.tag = tag;
-      }else{
+      const tag = window.findTag(this.$route.params.id);
+      if(!this.tag){
         this.$router.replace('/404')
       }
 
     }
     updateTag(name: string){
-      console.log("123456")
       if(this.tag){
-        tagListModel.update(this.tag.id,name)
+       window.updateTag(this.tag.id,name)
       }
     }
     remove(){

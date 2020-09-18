@@ -28,6 +28,10 @@ window.removeTag = (id: string)=>{
 window.updateTag = (id: string,name: string)=>{
   return tagListModel.update(id,name)
 }
+window.findTag = (id: string) =>{
+  return window.tagList.filter(t => t.id === id)[0];
+
+}
 
 
 
